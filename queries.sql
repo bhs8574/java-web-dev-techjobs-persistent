@@ -21,3 +21,16 @@ DROP TABLE `techjobs`.`job`;
 
 
 ## Part 4: Test it with SQL
+
+SELECT DISTINCT name, description
+FROM skill
+INNER JOIN job_skills ON skill.id=job_skills.skills_id
+ORDER BY name ASC;
+
+## The above works fine for me.  If is not null is required, this works for me also:
+
+SELECT DISTINCT name, description
+FROM skill
+LEFT JOIN job_skills ON skill.id = job_skills.skills_id
+WHERE jobs_id is NOT NULL
+ORDER BY name ASC;
